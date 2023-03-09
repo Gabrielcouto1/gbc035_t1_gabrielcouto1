@@ -185,6 +185,91 @@ public class principal {
             System.out.println("A nota do aluno "+(i+1)+" eh: "+(vet[i]*fator_normalizacao)+" ");
     }
 
+    public static void ex08(){
+        Scanner sc = new Scanner(System.in);
+        int[] vet = new int[5];
+        System.out.println("<< Media e desvio padrao >>");
+        double media, soma=0, dp, temp, aux;
+        
+        for(int i=0;i<5;i++){
+            System.out.print("Digite o valor "+(i+1)+": ");
+            vet[i]=sc.nextInt();
+            sc.nextLine();
+            soma+=vet[i];
+        }
+        media=soma/5;
+        soma=0;
+        for(int i=0;i<5;i++){
+            temp=Math.pow((vet[i]-media),2);
+            soma+=temp;
+        }
+        aux=soma/4;
+        dp=Math.sqrt(aux);
+
+        System.out.println("A media eh "+media+" e o desvio padrao eh "+dp);
+    }
+
+    public static void ex09(){
+        Scanner sc = new Scanner(System.in);
+        float soma=0;
+        float media;
+        int qtd_alunos;
+        System.out.println("<< Listando um vetor de numeros pares>>");
+        System.out.println("Insira a quantidade de alunos: ");
+        qtd_alunos=sc.nextInt();
+        sc.nextLine();
+        
+        if(qtd_alunos>100||qtd_alunos<0){
+            System.out.println("Erro! O numero maximo de alunos e 100.");
+            return;
+        }
+        int[] vet=new int[qtd_alunos];
+
+        for(int i=0;i<qtd_alunos;i++){
+            System.out.print("Digite a nota do aluno "+(i+1)+": ");
+            vet[i]=sc.nextInt();
+            sc.nextLine();
+            soma+=vet[i];
+        }
+
+        media=soma/qtd_alunos;
+
+        System.out.println("<<Relatorio de notas >>");
+        for(int i=0;i<qtd_alunos;i++)
+            System.out.println("Nota do aluno "+(i+1)+": "+vet[i]);
+        
+        System.out.println("A media eh: "+media);
+    }
+
+    public static void ex10(){
+        Scanner sc=new Scanner(System.in);
+        int[] vetA=new int[3];
+        int[] vetB=new int[3];
+        int[] vetC=new int[3];
+
+        System.out.println("<<Subtracao de vetores>>");
+    
+        for(int i=0;i<3;i++){
+            System.out.println("Digite o valor "+(i+1)+" de A: ");
+            vetA[i]=sc.nextInt();
+            sc.nextLine();
+        }    
+        for(int i=0;i<3;i++){
+            System.out.println("Digite o valor "+(i+1)+" de B: ");
+            vetB[i]=sc.nextInt();
+            sc.nextLine();
+        }
+        System.out.print("O vetor C, definido como C=A-B eh (");  
+        for(int i=0;i<3;i++){
+            vetC[i]=vetA[i]-vetB[i];
+            System.out.print(vetC[i]+",");
+        }
+        System.out.println(")");
+    }
+    
+    public static void ex11(){
+        
+    }
     public static void main(String[] args) {
         //ex01();
         //ex02();
@@ -193,5 +278,8 @@ public class principal {
         //ex05();
         //ex06();
         //ex07();
+        //ex08();
+        //ex09();
+        //ex10();
     }
 }
