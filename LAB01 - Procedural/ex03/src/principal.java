@@ -406,8 +406,85 @@ public class principal {
     public static void ex15(){
         Scanner sc=new Scanner(System.in);
         int[] vet=new int[8];
+        int[] repetidos=new int[4];
+        int qtd_repetidos=0;
+
+        System.out.println("<<Valores Iguais>>");
         
+        for(int i=0;i<8;i++){
+            System.out.print("Entre com o numero "+(i+1)+": ");
+            vet[i]=sc.nextInt();
+            sc.nextLine();
+        }
+
+        for(int i=0;i<8;i++) {
+            for(int j=i+1;j<8;j++) {
+                if(vet[i]==vet[j]) {
+                    boolean ja=false;
+                    for(int k=0;k<qtd_repetidos;k++) {
+                        if(repetidos[k]==vet[i]){
+                            ja=true;
+                            break;
+                        }
+                    }
+                    if(!ja){
+                        repetidos[qtd_repetidos]=vet[i];
+                        qtd_repetidos++;
+                    }
+                    break;
+                }
+            }
+        }
+
+        System.out.print("Valores repetidos: ");
+        for(int i=0;i<qtd_repetidos;i++)
+            System.out.print(repetidos[i]+" ");
     }
+    
+    public static void ex16(){
+        Scanner sc=new Scanner(System.in);
+        int[] vet=new int[8];
+        int[] repetidos=new int[4];
+        int[] qtdrep=new int[4];
+        int qtd_repetidos=0;
+
+        for(int i=0;i<4;i++)
+            qtdrep[i]=0;
+        
+        System.out.println("<<Valores Iguais>>");
+        
+        for(int i=0;i<8;i++){
+            System.out.print("Entre com o numero "+(i+1)+": ");
+            vet[i]=sc.nextInt();
+            sc.nextLine();
+        }
+
+        for(int i=0;i<8;i++) {
+            for(int j=i+1;j<8;j++) {
+                if(vet[i]==vet[j]) {
+                    boolean ja=false;
+                    for(int k=0;k<qtd_repetidos;k++) {
+                        if(repetidos[k]==vet[i]){
+                            ja=true;
+                            qtdrep[k]++;
+                            break;
+                        }
+                    }
+                    if(!ja){
+                        repetidos[qtd_repetidos]=vet[i];
+                        qtdrep[qtd_repetidos]=2;
+                        qtd_repetidos++;
+                    }
+                    break;
+                }
+            }
+        }
+
+        System.out.print("Valores repetidos: ");
+        for(int i=0;i<qtd_repetidos;i++)
+            System.out.println(repetidos[i]+" aparece "+qtdrep[i]+" vezes");
+    }
+
     public static void main(String[] args) {
         //ex01();
         //ex02();
@@ -423,6 +500,7 @@ public class principal {
         //ex12();
         //ex13();
         //ex14();
-        ex15();
+        //ex15();
+        ex16();
     }
 }
