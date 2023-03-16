@@ -59,4 +59,15 @@ public class Figurinhas {
     public String getPais(){
         return this.pais;
     }
+
+    public String getJogador(){
+        String out="Nome: "+this.getNome()+"\n";
+        out+="Nascimento: "+this.getNascimento()+"\n";
+        out+="Altura: "+this.getAltura()+"\n";
+        out+="Peso: "+this.getPeso()+"\n";
+        out+="Posicao: "+this.getPosicao()+"\n";
+        out+="Pais: "+this.getPais()+"\n";
+
+        return out;
+    }
 }
